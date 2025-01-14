@@ -12,7 +12,7 @@ const restaurantData = [
     menu: [
       {
         category: "Fast Food",
-        items: [
+        items: [  
           {
             id: 1,
             name: "Cheeseburger",
