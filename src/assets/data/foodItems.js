@@ -15,7 +15,7 @@ const foodItems = [
       name: "Cake",
       category:"Fast Food",
       image:
-        "https://cdn.pixabay.com/photo/2022/08/05/17/47/cake-7367272_1280.jpg",
+        "https://cdn.pixabay.com/photo/2023/03/22/20/16/muffin-7870491_960_720.jpg",
     },
     {
       name: "Biryani",
