@@ -10,10 +10,10 @@ import Footer from "./components/Footer";
 import Menu from "./pages/Menu";
 import AboutUs from "./components/About";
 import ContactUs from "./components/Contact";
-import RestrarantItem from "./components/RestrarantItem";
+import RestrarantItem from "./components/RestaurantItem";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
-import restaurantData from "./assets/restaurantData";
+import restaurantData from "./assets/data/restaurantData";
 import Order from "./pages/Order";
 import OrderHistory from "./components/OrderHistory";
 

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import restaurantData from "../assets/restaurantData"; // Restaurant data import
-import placeorder from "../assets/placedorder.mp4"; // Video import for order confirmation
+import restaurantData from "../assets/data/restaurantData"; // Restaurant data import
+import placeorder from "../assets/videos/placedorder.mp4"; // Video import for order confirmation
 
 // Order component handling the order flow
 const Order = ({ isLoggedIn }) => {
@@ -31,7 +31,7 @@ const Order = ({ isLoggedIn }) => {
   // Effect to set playback rate of the video
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 2; 
+      videoRef.current.playbackRate = 2;
     }
   }, []);
 
@@ -63,13 +63,13 @@ const Order = ({ isLoggedIn }) => {
   // Function to handle order placement
   const handlePlaceOrder = () => {
     if (isLoggedIn) {
-      navigate("/"); 
+      navigate("/");
       return;
     }
-  
+
     // Prepare order details
     const orderDetails = {
-      orderId: new Date().getTime(), 
+      orderId: new Date().getTime(),
       cartItems: Object.keys(cart).reduce((acc, id) => {
         const item = restaurantData.flatMap((restaurant) =>
           restaurant.menu.flatMap((category) =>
@@ -77,7 +77,7 @@ const Order = ({ isLoggedIn }) => {
           )
         )[0];
         if (item) {
-          acc[id] = { ...item, quantity: cart[id] }; 
+          acc[id] = { ...item, quantity: cart[id] };
         }
         return acc;
       }, {}),
@@ -85,25 +85,26 @@ const Order = ({ isLoggedIn }) => {
       address: address,
       paymentMethod: paymentMethod,
     };
-  
+
     // Save order history in localStorage
-    const existingOrders = JSON.parse(localStorage.getItem("orderHistory")) || [];
+    const existingOrders =
+      JSON.parse(localStorage.getItem("orderHistory")) || [];
     existingOrders.push(orderDetails);
     localStorage.setItem("orderHistory", JSON.stringify(existingOrders));
-  
+
     // Remove cart from localStorage and navigate to order history
     localStorage.removeItem("cart");
     alert("Your order has been placed successfully!");
-    navigate("/order-history"); 
+    navigate("/order-history");
   };
-  
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100 pt-[72px]">
       <header className="p-4 bg-blue-600 text-white text-center rounded-t-lg">
         <h1 className="text-3xl font-bold">Order Process</h1>
       </header>
 
-      <main className="flex-grow p-8 max-w-4xl mx-auto bg-white shadow-xl rounded-lg mt-6">
+      <main className="flex-grow p-4 sm:p-8 max-w-full sm:max-w-4xl mx-auto bg-white shadow-xl rounded-lg mt-6">
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center space-x-4 w-full justify-center">
             {["Address", "Payment", "Confirmation"].map((label, index) => (
@@ -136,7 +137,7 @@ const Order = ({ isLoggedIn }) => {
             <div className="flex justify-center">
               <input
                 type="text"
-                className="w-[600px] max-w-full outline-none p-4 border border-gray-300 rounded-lg mb-6"
+                className="w-[300px] sm:w-[600px] max-w-full outline-none p-4 border border-gray-300 rounded-lg mb-6"
                 placeholder="Enter your address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}

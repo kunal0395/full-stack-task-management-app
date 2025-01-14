@@ -3,8 +3,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faStar, faFilter } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import foodVideo from "../assets/food.mp4";
-import restaurants from "../assets/restaurantData";
+import foodVideo from "../assets/videos/food.mp4";
+import restaurants from "../assets/data/restaurantData";
 import FoodGrid from "./Foodgrid";
 
 library.add(faClock, faStar, faFilter);
@@ -178,7 +178,13 @@ const Restrarant = () => {
         <FoodGrid onFoodItemClick={(category) => scrollToCategory(category)} />
       </div>
 
-      <section className="py-8">
+      <div className="flex items-center justify-center">
+            <div className="w-[44%] h-[1px] bg-black"></div>
+            <h1 className="mx-4 text-2xl font-bold text-center">restaurant</h1>
+            <div className="w-[44%] h-[1px] bg-black"></div>
+          </div>
+
+      <section className="py-4">
         <div className="container mx-auto px-2">
           <div className="flex justify-end mb-4">
             <button
@@ -200,7 +206,7 @@ const Restrarant = () => {
         </div>
       </section>
 
-      <section className="py-8">
+      <section className="py-4">
         <div className="container mx-auto px-2">
           {Object.keys(groupedRestaurants).map((category) => (
             <div

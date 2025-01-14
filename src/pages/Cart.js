@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import restaurantData from "../assets/restaurantData";
+import restaurantData from "../assets/data/restaurantData";
 
 const Cart = ({ isLoggedIn }) => {
   const [cart, setCart] = useState({});
@@ -56,7 +56,7 @@ const Cart = ({ isLoggedIn }) => {
         <h1 className="text-2xl font-bold">Your Cart</h1>
       </header>
 
-      <main className="flex-grow p-8 max-w-6xl mx-auto bg-white shadow-2xl rounded-lg mt-8 mb-10">
+      <main className="flex-grow p-4 sm:p-8 max-w-6xl mx-auto bg-white shadow-2xl rounded-lg mt-8 mb-10">
         {!isLoggedIn && (
           <div className="text-center text-red-600 font-semibold mb-6">
             Please log in to place an order.
@@ -79,7 +79,7 @@ const Cart = ({ isLoggedIn }) => {
                 d="M17 7l4 4m0 0l-4 4m4-4H3"
               ></path>
             </svg>
-            <p className="text-2xl text-gray-600 font-semibold mt-6">
+            <p className="text-lg sm:text-2xl text-gray-600 font-semibold mt-6">
               Your cart is empty!
             </p>
           </div>
@@ -96,13 +96,13 @@ const Cart = ({ isLoggedIn }) => {
                 return (
                   <li
                     key={id}
-                    className="flex justify-between items-center py-6 px-6 hover:bg-gray-50 transition duration-300 ease-in-out gap-40"
+                    className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-6 px-6 hover:bg-gray-50 transition duration-300 ease-in-out gap-4 sm:gap-40"
                   >
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-800">
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
                         {item.name}
                       </h3>
-                      <p className="text-gray-600 text-lg">
+                      <p className="text-gray-600 text-sm sm:text-lg">
                         {cart[id]} x{" "}
                         <span className="font-semibold text-gray-900">
                           {item.price}
@@ -111,7 +111,7 @@ const Cart = ({ isLoggedIn }) => {
                     </div>
                     <button
                       onClick={() => handleRemoveFromCart(id)}
-                      className="bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition duration-300 ease-in-out"
+                      className="bg-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md hover:bg-red-600 transition duration-300 ease-in-out w-full sm:w-auto"
                     >
                       Remove
                     </button>
@@ -121,7 +121,7 @@ const Cart = ({ isLoggedIn }) => {
             </ul>
 
             <div className="mt-10 text-right">
-              <h2 className="text-2xl font-semibold text-gray-800">
+              <h2 className="text-lg sm:text-2xl font-semibold text-gray-800">
                 Total:{" "}
                 <span className="text-green-600">
                   ${calculateTotal().toFixed(2)}
@@ -131,7 +131,7 @@ const Cart = ({ isLoggedIn }) => {
 
             <button
               onClick={handlePlaceOrder}
-              className="w-full mt-8 bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300 ease-in-out"
+              className="w-full mt-8 bg-blue-600 text-white py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold hover:bg-blue-700 transition duration-300 ease-in-out"
               disabled={!isLoggedIn}
             >
               Place Order

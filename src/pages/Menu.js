@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Restrarant from '../components/Restrarant'; // Importing the Restaurant component
-import RestrarantItem from '../components/RestrarantItem'; // Importing the Restaurant Item component
+import Restrarant from '../components/Restaurant'; 
+import RestrarantItem from '../components/RestaurantItem'; 
 
 // Menu component to handle routing between different restaurant views
 const Menu = () => {

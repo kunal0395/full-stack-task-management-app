@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import foodCategories from "../assets/restaurantData";
+import foodCategories from "../assets/data/restaurantData";
 import { useParams } from "react-router-dom";
 
 // Add FontAwesome icons to the library

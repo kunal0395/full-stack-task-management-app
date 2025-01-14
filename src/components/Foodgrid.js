@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { BiChevronLeftCircle, BiChevronRightCircle } from "react-icons/bi";
-import foodItems from "../assets/foodItems.js";
+import foodItems from "../assets/data/foodItems";
 
 const FoodGrid = ({ onFoodItemClick }) => {
   // Create a ref to access the scrollable grid
